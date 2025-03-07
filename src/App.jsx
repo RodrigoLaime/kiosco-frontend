@@ -16,9 +16,10 @@ function App() {
         <Route path="/crear-producto" element={<CreateProduct />} />
         <Route path="/editar-producto/:id" element={<EditProduct />} />
       </Routes> */}
-      <div className="min-h-screen text-black bg-gray-100"> {/* Contenedor general con clases de Tailwind */}
+      <div className="min-h-screen text-black bg-white"> {/* Contenedor general con clases de Tailwind */}
         <Navbar />
-        <div className="container mx-auto p-4"> {/* Contenedor para el contenido */}
+        {/* <div className="container mx-auto p-4"> Contenedor para el contenido */}
+        <div className="container mx-auto"> {/* Contenedor para el contenido */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/productos" element={<ProductList />} />
