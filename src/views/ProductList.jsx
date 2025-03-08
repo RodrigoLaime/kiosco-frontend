@@ -12,16 +12,19 @@ const ProductList = () => {
 
     return (
         <div className="p-4">
-            <UploadImage />
-            <h2>Lista de Productos</h2>
+            <div className="flex gap-4 flex-col items-center justify-center p-4 text-center">
+                {/* <h2>Lista de Productos</h2> */}
+                <h2 className="font-extrabold text-6xl">Listado y Gestión de Productos</h2>
+                {/* <h2 className="font-extrabold text-6xl">Exploración de Productos con Acceso a Información y Actualización</h2> */}
+                <p className="text-1xl font-semibold text-gray-500 max-w-3xl">Visualiza y administra la información de los productos disponibles en el kiosco. Consulta sus detalles y edita fácilmente los datos para mantener la información siempre actualizada.</p>
+            </div>
             <div className="mx-auto p-4">
-                {/* <ul className="grid gap-4 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"> */}
+                {/* sm:grid-cols-2  */}
                 <ul className="grid gap-4 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                     {products.map((product) => (
                         <li key={product.id}>
                             <div className="relative">
-                                {/* <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7f2Hce9bEMzkwfStA8jd3qJ9vhae8u_tUyw&s" alt={product.name} className="w-full object-cover mb-2" /> */}
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSos5A2Ukkt5NahdvRc0fnhxLuJg8PDYgSMng&s" alt={product.name} className="w-full object-cover mb-2 rounded-xl" />
+                                <img src="https://images.unsplash.com/photo-1567721913486-6585f069b332?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cHJvZHVjdHN8ZW58MHx8MHx8fDA%3D" alt={product.name} className="w-full object-cover mb-2 rounded-xl" />
                                 <p className="absolute top-0 left-0 bg-violet-800 bg-opacity-50 rounded-full m-2 py-1 px-3 font-medium text-white">{product.categoria}</p>
                             </div>
                             {/* <div className="p-4 bg-white rounded-xl shadow-md"> */}
@@ -52,6 +55,7 @@ const ProductList = () => {
                     ))}
                 </ul>
             </div>
+            <UploadImage />
         </div>
     );
 };

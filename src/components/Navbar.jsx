@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav>
+    <nav className='absolute top-0 w-full'>
       <div className=' container mx-auto flex justify-between items-center p-4'>
         <div>
           <h1 className='text-2xl font-bold text-center'>Kiosco App</h1>

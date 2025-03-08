@@ -9,16 +9,8 @@ import CreateProduct from "./views/CreateProduct.jsx";
 function App() {
   return (
     <Router>
-   {/*    <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/productos" element={<ProductList />} />
-        <Route path="/crear-producto" element={<CreateProduct />} />
-        <Route path="/editar-producto/:id" element={<EditProduct />} />
-      </Routes> */}
-      <div className="min-h-screen text-black bg-white"> {/* Contenedor general con clases de Tailwind */}
+      <div className="min-h-screen text-black bg-white relative">
         <Navbar />
-        {/* <div className="container mx-auto p-4"> Contenedor para el contenido */}
         <div className="container mx-auto"> {/* Contenedor para el contenido */}
           <Routes>
             <Route path="/" element={<Home />} />
@@ -27,6 +19,7 @@ function App() {
             <Route path="/editar-producto/:id" element={<EditProduct />} />
           </Routes>
         </div>
+        <footer className="container mx-auto">hola</footer>
       </div>
     </Router>
   );
