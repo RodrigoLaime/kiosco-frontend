@@ -47,7 +47,7 @@ const ProductDetail = () => {
     }
 
     return (
-        <div className="min-h-screen pt-20 px-4 max-w-7xl mx-auto">
+        <div className="min-h-screen pb-16 px-4 max-w-7xl mx-auto">
             {/* Botón Volver */}
             <button
                 onClick={() => navigate('/productos')}

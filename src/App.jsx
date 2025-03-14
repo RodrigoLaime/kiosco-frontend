@@ -35,6 +35,7 @@ import EditProduct from "./views/EditProduct.jsx";
 import Home from "./views/Home.jsx";
 import Navbar from "./components/Navbar.jsx";
 import CreateProduct from "./views/CreateProduct.jsx";
+import ProductDetail from "./views/ProductDetail.jsx";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <div className="container mx-auto px-4 py-8">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/producto/:id" element={<ProductDetail />} />
               <Route path="/productos" element={<ProductList />} />
               <Route path="/crear-producto" element={<CreateProduct />} />
               <Route path="/editar-producto/:id" element={<EditProduct />} />
