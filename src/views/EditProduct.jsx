@@ -343,7 +343,6 @@ const EditProduct = () => {
                 </h2>
 
                 {/* Componente de carga de imagen */}
-                {JSON.stringify(editedProduct)}
                 <div className="mb-8">
                     <UploadImage
                         onUpload={handleImageUpload}
