@@ -7,6 +7,20 @@ const ProductDetail = () => {
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    // Función para formatear números con separador de miles
+    const formatNumber = (number) => {
+        return new Intl.NumberFormat('es-AR', {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+        }).format(number);
+    };
+
+    // Función para formatear fechas
+    const formatDate = (dateString) => {
+        if (!dateString) return 'No disponible';
+        return new Date(dateString).toLocaleDateString('es-AR');
+    };
+
     useEffect(() => {
         const fetchProductDetails = async () => {
             try {
@@ -82,7 +96,7 @@ const ProductDetail = () => {
                                 </h1>
                             </div>
                             <span className="text-2xl font-bold text-violet-600">
-                                ${product.precio_unitario}
+                            ${formatNumber(product.precio_unitario)}
                             </span>
                         </div>
 
@@ -99,7 +113,7 @@ const ProductDetail = () => {
                                 </div>
                                 <div>
                                     <h3 className="text-sm font-medium text-gray-500">Stock Disponible</h3>
-                                    <p className="mt-1 text-gray-900">{product.stock_disponible} unidades</p>
+                                    <p className="mt-1 text-gray-900">{formatNumber(product.stock_disponible)} unidades</p>
                                 </div>
                                 <div>
                                     <h3 className="text-sm font-medium text-gray-500">Proveedor</h3>
@@ -115,15 +129,15 @@ const ProductDetail = () => {
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
                                         <h3 className="text-sm font-medium text-gray-500">Fecha de Creación</h3>
-                                        <p className="mt-1 text-gray-900">{product.fecha_creacion}</p>
+                                        <p className="mt-1 text-gray-900">{formatDate(product.fecha_creacion)}</p>
                                     </div>
                                     <div>
                                         <h3 className="text-sm font-medium text-gray-500">Última Actualización</h3>
-                                        <p className="mt-1 text-gray-900">{product.fecha_actualizacion || 'Sin actualizar'}</p>
+                                        <p className="mt-1 text-gray-900">{formatDate(product.fecha_actualizacion)}</p>
                                     </div>
                                     <div>
                                         <h3 className="text-sm font-medium text-gray-500">Fecha de Vencimiento</h3>
-                                        <p className="mt-1 text-gray-900">{product.fecha_vencimiento}</p>
+                                        <p className="mt-1 text-gray-900">{formatDate(product.fecha_vencimiento)}</p>
                                     </div>
                                 </div>
                             </div>

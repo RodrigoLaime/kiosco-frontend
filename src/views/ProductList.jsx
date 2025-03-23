@@ -55,6 +55,14 @@ const ProductList = () => {
         setFilteredProducts(filtered);
     };
 
+    // Función para formatear números con separador de miles
+    const formatPrice = (price) => {
+        return new Intl.NumberFormat('es-AR', {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+        }).format(price);
+    };
+
     return (
         <div className="px-4 pb-16">
             {/* <div className="flex gap-4 flex-col items-center justify-center p-4 text-center">
@@ -96,9 +104,9 @@ const ProductList = () => {
                                     <h3 className="text-xl font-bold truncate">{product.nombre}</h3>
                                     <p className="font-medium text-gray-500">{product.tipo_de_producto}</p>
                                     <div className="flex justify-between items-center">
-                                        <p className="text-xl font-bold">${product.precio_unitario}</p>
+                                        <p className="text-xl font-bold">${formatPrice(product.precio_unitario)}</p>
                                         <span className="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">
-                                            Stock: {product.stock_disponible}
+                                            Stock: {formatPrice(product.stock_disponible)}
                                         </span>
                                     </div>
 

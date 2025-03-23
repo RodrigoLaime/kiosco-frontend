@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  ChartBarIcon, 
-  CurrencyDollarIcon, 
-  ShoppingBagIcon, 
+import {
+  ChartBarIcon,
+  CurrencyDollarIcon,
+  ShoppingBagIcon,
   PlusCircleIcon,
   ArrowTrendingUpIcon,
   ClipboardDocumentListIcon
@@ -54,15 +54,14 @@ const Home = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Header */}
-      <div className="mb-8">
+      {/* <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900">
           ¡Bienvenido al Panel de Control!
         </h1>
         <p className="mt-2 text-lg text-gray-600">
           Gestiona tu kiosco de manera eficiente
         </p>
-      </div>
+      </div> */}
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -78,21 +77,17 @@ const Home = () => {
                   {stat.value}
                 </p>
               </div>
-              <div className={`p-3 rounded-lg ${
-                stat.trend === 'up' ? 'bg-green-100' : 'bg-red-100'
-              }`}>
-                <stat.icon className={`w-6 h-6 ${
-                  stat.trend === 'up' ? 'text-green-600' : 'text-red-600'
-                }`} />
+              <div className={`p-3 rounded-lg ${stat.trend === 'up' ? 'bg-green-100' : 'bg-red-100'
+                }`}>
+                <stat.icon className={`w-6 h-6 ${stat.trend === 'up' ? 'text-green-600' : 'text-red-600'
+                  }`} />
               </div>
             </div>
             <div className="mt-4 flex items-center">
-              <ArrowTrendingUpIcon className={`w-4 h-4 mr-1 ${
-                stat.trend === 'up' ? 'text-green-500' : 'text-red-500'
-              }`} />
-              <span className={`text-sm ${
-                stat.trend === 'up' ? 'text-green-500' : 'text-red-500'
-              }`}>
+              <ArrowTrendingUpIcon className={`w-4 h-4 mr-1 ${stat.trend === 'up' ? 'text-green-500' : 'text-red-500'
+                }`} />
+              <span className={`text-sm ${stat.trend === 'up' ? 'text-green-500' : 'text-red-500'
+                }`}>
                 {stat.change}
               </span>
               <span className="text-sm text-gray-500 ml-2">vs mes anterior</span>
