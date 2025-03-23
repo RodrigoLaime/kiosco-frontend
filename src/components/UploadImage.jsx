@@ -74,9 +74,15 @@ const UploadImage = ({ onUpload, initialImageUrl, initialPublicId }) => {
     try {
       // Determinar si es una actualización o una nueva carga
       const method = initialPublicId ? 'PUT' : 'POST';
-      const url = initialPublicId 
-        ? `http://localhost:5000/api/upload/${initialPublicId}`
-        : 'http://localhost:5000/api/upload';
+      const apiUrl = import.meta.env.VITE_API_URL;
+      const url = initialPublicId
+        ? `${apiUrl}/upload/${initialPublicId}`
+        : `${apiUrl}/upload`;
+
+      // test local
+      // const url = initialPublicId 
+      //   ? `http://localhost:5000/api/upload/${initialPublicId}`
+      //   : 'http://localhost:5000/api/upload';
 
       const response = await fetch(url, {
         method,
@@ -108,18 +114,18 @@ const UploadImage = ({ onUpload, initialImageUrl, initialPublicId }) => {
       {/* Preview de la imagen */}
       {imagePreview && (
         <div className="flex justify-center">
-          <img 
-            src={imagePreview} 
-            alt="Preview" 
-            className="max-w-[200px] rounded-lg shadow-md" 
+          <img
+            src={imagePreview}
+            alt="Preview"
+            className="max-w-[200px] rounded-lg shadow-md"
           />
         </div>
       )}
 
       <div className="flex flex-col space-y-2">
         {/* Input de archivo */}
-        <input 
-          type="file" 
+        <input
+          type="file"
           onChange={handleFileChange}
           accept="image/*"
           disabled={isLoading}
@@ -133,21 +139,21 @@ const UploadImage = ({ onUpload, initialImageUrl, initialPublicId }) => {
         />
 
         {/* Botón de carga */}
-        <button 
-          onClick={handleUpload} 
+        <button
+          onClick={handleUpload}
           disabled={!file || isLoading}
           className={`
             px-4 py-2 rounded-lg font-semibold text-sm
-            ${!file || isLoading 
-              ? 'bg-gray-300 cursor-not-allowed' 
+            ${!file || isLoading
+              ? 'bg-gray-300 cursor-not-allowed'
               : 'bg-violet-600 hover:bg-violet-700 text-white'}
             transition-colors duration-200
           `}
         >
-          {isLoading 
-            ? 'Subiendo...' 
-            : initialPublicId 
-              ? 'Actualizar Imagen' 
+          {isLoading
+            ? 'Subiendo...'
+            : initialPublicId
+              ? 'Actualizar Imagen'
               : 'Subir Imagen'}
         </button>
       </div>
